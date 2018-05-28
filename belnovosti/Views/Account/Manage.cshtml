@@ -1,0 +1,65 @@
+﻿@using belnovosti.Models;
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "Управление аккаунтом";
+}
+
+<h2>Управление аккаунтом</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div class="row">
+    <div class="col-md-12">
+        @if (ViewBag.HasLocalPassword)
+        {
+            @Html.Partial("_ChangePasswordPartial")
+        }
+        else
+        {
+            @Html.Partial("_SetPasswordPartial")
+        }
+
+        <section id="externalLogins">
+            @Html.Action("RemoveAccountList")
+            
+        </section>
+        <center><h1>Ваши новости</h1></center>
+        <p><a href="/Home/Create" class="btn btn-primary btn-large">Создать новость</a></p>
+        @foreach (var b in ViewBag.Articles)
+        {
+            if (b.Author == ViewBag.User)
+            {
+                <div class="row">
+                    <div class="col-lg-10">
+                        <p style="font-size:large">@b.Name</p>
+                        <p>Автор: @b.Author</p>
+                    </div>
+                    <div class="col-lg-1">
+                        <p><a class="btn btn-default" href="/Home/Content/@b.Id">Читать</a></p>
+                    </div>
+                     <div class="col-lg-1">
+                        <p><a class="btn btn-danger" href="/Home/Delete/@b.Id">Удалить</a></p>
+                    </div>
+                </div>
+            }
+            else if (ViewBag.User == "admin")
+            {
+                <div class="row">
+                    <div class="col-lg-10">
+                        <p style="font-size:large">@b.Name</p>
+                        <p>Автор: @b.Author</p>
+                    </div>
+                    <div class="col-lg-1">
+                        <p><a class="btn btn-default" href="/Home/Content/@b.Id">Читать</a></p>
+                    </div>
+                    <div class="col-lg-1">
+                        <p><a class="btn btn-danger" href="/Home/Delete/@b.Id">Удалить</a></p>
+                    </div>
+                </div>
+            }
+        }
+
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

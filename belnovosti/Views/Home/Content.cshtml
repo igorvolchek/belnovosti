@@ -1,0 +1,10 @@
+﻿@model belnovosti.Models.Article
+@{
+    ViewBag.Title = "Content";
+}
+<h4>Раздел: @Html.Display("Category")</h4>
+<h2>@Html.Display("Name")</h2>
+<h4>@Html.Display("Content")</h4>
+<p>@Html.Display("Paragraph")</p>
+<br />
+<p>Автор @Html.Display("Author")</p>

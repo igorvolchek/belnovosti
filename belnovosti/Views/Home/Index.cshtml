@@ -1,0 +1,19 @@
+﻿@model belnovosti.Models.Article
+@{
+    ViewBag.Title = "Новости в Беларуси";
+}
+
+
+
+
+@foreach (var a in ViewBag.Articles)
+{
+
+    <div class="col-sm-12">
+        <h2>@a.Name</h2>
+        <p>@a.Content</p>
+        <p><a class="btn btn-default" href="/Home/Content/@a.Id">Читать</a></p>
+    </div>
+
+
+}

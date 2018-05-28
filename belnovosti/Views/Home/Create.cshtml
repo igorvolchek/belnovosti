@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Создание новости";
+}
+<h3>Форма создания новости</h3>
+<form method="post">
+    <h3>Название</h3>
+    <textarea name="Name" cols="50" rows="2"></textarea>
+    <h3>Краткое описание</h3>
+    <textarea name="Content" cols="100" rows="3"></textarea>
+    <h3>Раздел</h3>
+    <select name="Category">
+        <option>Спорт</option>
+        <option>Политика</option>
+        <option>Люди</option>
+        <option>Экономика</option>
+        <option>Кино</option>
+        <option>Авто</option>
+        <option>Происшествия</option>
+        <option>Другое</option>
+    </select>
+    <div class="col-md-12">
+        <br />
+    </div>
+    <h3>Статья</h3>
+    <textarea name="Paragraph" cols="150" rows="10"></textarea>
+    <div class="col-lg-12"><br /></div>
+    <center><input type="submit" class="btn btn-success" value="Отправить"></center>
+</form>
+
+
