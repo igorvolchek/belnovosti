@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using belnovosti.Models;
-namespace bynews.Controllers
+namespace belnovosti.Controllers
 {
     public class HomeController : Controller
     {
@@ -35,25 +35,8 @@ namespace bynews.Controllers
             db.SaveChanges();
             return Redirect("/Home/Index");
         }
-        [Authorize]
-        public ActionResult Update(int id)
-        {
-            Article b = db.Articles.Find(id);
-            if (b == null)
-            {
-                return HttpNotFound();
-            }
-            return View(b);
-        }
-        [HttpPost]
-        [Authorize]
-        public ActionResult Update(Article article)
-        {
-
-
-            db.SaveChanges();
-            return Redirect("/Home/Index");
-        }
+       
+       
         [Authorize]
         public ActionResult Delete(int id)
         {
@@ -74,18 +57,5 @@ namespace bynews.Controllers
             return View(b);
 
         }
-
-        public ActionResult About()
-        {
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
-    }
+}
 }

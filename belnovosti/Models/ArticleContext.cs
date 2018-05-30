@@ -15,8 +15,6 @@ namespace belnovosti.Models
     {
         protected override void Seed(ArticleContext db)
         {
-            
-
             base.Seed(db);
         }
     }
